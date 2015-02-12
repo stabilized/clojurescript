@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.clojure</groupId>
+  <groupId>stabilized</groupId>
   <artifactId>clojurescript</artifactId>
   <!-- Version number will be replaced by script/build -->
   <version>CLOJURESCRIPT_VERSION</version>
   <packaging>jar</packaging>
   <name>ClojureScript</name>
 
-  <url>https://github.com/clojure/clojurescript</url>
+  <url>https://github.com/stabilized/clojurescript</url>
 
   <description>
     ClojureScript compiler and core runtime library.

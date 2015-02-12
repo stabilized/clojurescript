@@ -1,71 +1,104 @@
-## What is ClojureScript? ##
+## stabilized/ClojureScript
 
-ClojureScript is a new compiler for [Clojure](http://clojure.org) that targets JavaScript. It is designed to emit JavaScript code which is compatible with the advanced compilation mode of the [Google Closure](http://code.google.com/closure/) optimizing compiler.
+stabilized/ClojureScript (or "s/cljs") is a distribution (*not* a
+fork) of [ClojureScript](https://github.com/clojure/clojurescript)
+with an emphasis on stability.  Release versions of s/cljs have
+semantic meaning.
 
-## Releases and dependency information ##
+## Dependency information
 
-Latest stable release: 0.0-2843
+Releases are deployed to
+[Clojars](https://clojars.org/stabilized/clojurescript)
 
-* [All released versions](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.clojure%22%20AND%20a%3A%22clojurescript%22)
+Latest stable release: 1.0.0 (based on [ClojureScript
+0.0-2843](https://github.com/clojure/clojurescript/tree/r2843))
 
-[Leiningen](http://github.com/technomancy/leiningen/) dependency information:
+* [All released versions](https://clojars.org/stabilized/clojurescript)
+
+[Leiningen](http://github.com/technomancy/leiningen/) and [Boot](http://boot-clj.com/) dependency information:
 
 ```
-[org.clojure/clojurescript "0.0-2843"]
+[stabilized/clojurescript "1.0.0"]
 ```
 
 [Maven](http://maven.apache.org) dependency information:
 
 ```
 <dependency>
-  <groupId>org.clojure</groupId>
+  <groupId>stabilized</groupId>
   <artifactId>clojurescript</artifactId>
-  <version>0.0-2843</version>
+  <version>1.0.0</version>
 </dependency>
 ```
 
-## Getting Started ##
+## Rationale
 
-* [Compare with JavaScript](http://himera.herokuapp.com/synonym.html)
-* [Try it online](http://himera.herokuapp.com/index.html)
-* Read the [Quick Start](https://github.com/clojure/clojurescript/wiki/Quick-Start) guide.
-* Read the [Documentation](https://github.com/clojure/clojurescript/wiki).
-* Try a [tutorial](https://github.com/clojure/clojurescript/wiki).
-* Look at the [Sample Applications](https://github.com/clojure/clojurescript/tree/master/samples).
-* [Companies using ClojureScript](https://github.com/clojure/clojurescript/wiki/Companies-Using-ClojureScript)
+We are grateful for ClojureScript and happy with how it works and is
+developed.  We are less than happy with the breakneck pace of its
+releases.  Our applications are particularly sensitive to our tools,
+and our tools are particularly sensitive to ClojureScript's
+implementation.  We have been unable to comfortably both use and
+maintain our tools while also developing our applications in the face
+of sometimes-weekly, sometimes-breaking ClojureScript releases.
 
-## Questions, Feedback? ##
+This distribution is our effort to mediate for ourselves the pace of
+upstream development as close to the root as possible, instead of
+trying to do so across all of our tools and applications.  We tried,
+but just don't have the time.
 
-Please point all of your questions and feedback
-to the [Clojure mailing list](http://groups.google.com/group/clojure). There
-is also a community run [ClojureScript user mailing list](http://groups.google.com/group/clojurescript). The Jira bug/feature tracking application is located at <http://dev.clojure.org/jira/browse/CLJS>.
+We invite you to use s/cljs, but also encourage you to keep using
+ClojureScript proper if its quicker pace is more to your liking.
+We're all on the same team!
 
-## Developers Welcome ##
+## Release Methodology
 
-ClojureScript operates under the same license as Clojure. All
-contributors must have a signed CA (Contributor's Agreement) and
-submit their patch via the appropriate channels. If you're interested
-in contributing to the project, please see the
-[contributing](http://clojure.org/contributing) page on
-[clojure.org](http://clojure.org). For more information about working
-on the compiler and testing check the
-[Developer section of the wiki](http://github.com/clojure/clojurescript/wiki/Developers).
+Given a version number MAJOR.MINOR.PATCH, we will increment the:
 
-YourKit
-----
+1. MAJOR version when there are user facing, incompatible language
+   changes,
+2. MINOR version when there are tool-author facing, incompatible API
+   changes (such as to the compiler API),
+3. PATCH version when there are backwards-compatible bug fixes or
+   enhancements.
 
-<img src="http://www.yourkit.com/images/yklogo.png"></img>
+* **Users** are those end-users using ClojureScript indirectly through
+  some number of tools to write applications.
+* **Tool-authors** are those developers who depend on internal
+  ClojureScript APIs in order to develop and maintain tools that adapt
+  ClojureScript to a particular development scenario, style, or
+  environment.
 
-YourKit has given an open source license for their profiler, greatly simplifying the profiling of ClojureScript performance.
+We will regularly and selectively:
 
-YourKit supports open source projects with its full-featured Java Profiler.
-YourKit, LLC is the creator of <a href="http://www.yourkit.com/java/profiler/index.jsp">YourKit Java Profiler</a>
-and <a href="http://www.yourkit.com/.net/profiler/index.jsp">YourKit .NET Profiler</a>,
-innovative and intelligent tools for profiling Java and .NET applications.
+* Merge enhancements and bug fixes from upstream and increment the version number accordingly, and
+* tag and deploy these new release versions to Clojars.
 
-## License ##
+We will make every effort to avoid divergent changes because we are a
+distribution, not a fork.  All development on s/cljs should happen
+indirectly, upstream, in mainline ClojureScript.
 
-    Copyright (c) Rich Hickey. All rights reserved. The use and
+## Helping and Contributing
+
+We are happy to receive feedback and questions particular to s/cljs as
+[Issues](https://github.com/stabilized/clojurescript/issues) in this
+repository.  Otherwise, you may consider:
+
+* Contacting the maintainers, [Alan Dipert](http://tailrecursion.com/~alan/index.cgi/index) and [Micha Niskin](http://micha.github.io/) directly, or
+* interacting with other s/cljs users in [the `#hoplon` channel on freenode IRC](http://webchat.freenode.net/?channels=hoplon).
+
+If you are interested in contributing code, or to report bugs
+applicable also to ClojureScript, please consult the [ClojureScript
+README](https://github.com/clojure/clojurescript).
+
+## License
+
+This distribution is licensed the same ClojureScript --
+[EPL](https://www.eclipse.org/legal/epl-v10.html) -- and does not and
+will not ever include contributions from anyone who has not [submitted
+a Clojure project Contributor Agreement
+(CA)](http://clojure.org/contributing).
+
+    Copyright (c) Alan Dipert & Micha Niskin. All rights reserved. The use and
     distribution terms for this software are covered by the Eclipse
     Public License 1.0 (http://opensource.org/licenses/eclipse-1.0.php)
     which can be found in the file epl-v10.html at the root of this
